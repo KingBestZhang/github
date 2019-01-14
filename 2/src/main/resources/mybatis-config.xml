@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+    <!--  -->
+       <properties resource="db.properties"/>
+       <settings>
+          <setting name="cacheEnabled" value="true"/>
+          
+        <setting name="logImpl" value="STDOUT_LOGGING" />  
+       </settings>
+       <typeAliases>
+          <!--  <typeAlias type="com.chinasoft.entity.Dept" alias="dept"/>单个类 -->
+           <package name="com.chiansoft.enity"/>
+       </typeAliases>
+     <environments default="development">  <!-- 开放环境 -->
+       <environment id="development">
+           <transactionManager type="JDBC"/>
+              <dataSource type="POOLED">
+                  <property name="driver" value="${driver}"/>
+                  <property name="url" value="${url}"/>
+                  <property name="username" value="${username}"/>
+                  <property name="password" value="${password}"/>
+              </dataSource>
+  
+       </environment>
+    </environments>
+ 
+ <!-- 加载SQL映射文件 --> 
+ <mappers>
+        <mapper resource="com/chiansoft/mapper/UserDaoImplMapper.xml"/>
+ </mappers>
+ 
+ 
+ 
+ 
+ </configuration>
